@@ -47,6 +47,6 @@ onMounted(() => {
   width: 1000px;
   margin: 0 auto;
   border-radius: 20px;
-  background: $--color-powder-blue;
+  background: $--background-color;
 }
 </style>
