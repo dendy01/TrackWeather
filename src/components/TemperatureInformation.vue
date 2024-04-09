@@ -7,6 +7,7 @@
         min {{ tempCity.tempMin }}<sup>℃</sup> - max {{ tempCity.tempMax
         }}<sup>℃</sup>
       </h5>
+      <h3>{{ props.tempCity.description }}</h3>
     </div>
   </div>
 </template>
@@ -36,7 +37,7 @@ const props = defineProps({
     align-items: center;
 
     img {
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     .heading {
@@ -50,6 +51,12 @@ const props = defineProps({
       font-size: 24px;
       line-height: 31px;
       margin-top: 0;
+    }
+
+    h3 {
+      color: white;
+      font-size: 20px;
+      margin-top: 5px;
     }
   }
 }

@@ -21,7 +21,7 @@ import IndicateCity from "./components/IndicateCity.vue";
 import TemperatureInformation from "./components/TemperatureInformation.vue";
 import { onMounted, ref } from "vue";
 import axios from "axios";
-import { days, months } from "./utils.js";
+import { days, months } from "./globalVariable/utils.js";
 
 const temp = ref({});
 
@@ -48,6 +48,8 @@ async function getWeather(cityValue) {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&units=metric&appid=3c3c89550e3a518b73d3d3920e7cf5d6`
     );
+
+    console.log(response.data);
 
     tempCity.value.temperature = Math.ceil(response.data.main.temp);
     tempCity.value.tempMin = Math.ceil(response.data.main.temp_min);
