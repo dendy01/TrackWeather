@@ -1,0 +1,13 @@
+:root {
+  --background-color: #f0f0f0;
+
+  --icon-color-sunny: #ffd700;
+  --icon-color-rainy: #4682b4;
+  --icon-color-snowy: #ffffff;
+  --success-color: #008000;
+  --error-color: #ff4500;
+  --warning-color: #ff8c00;
+  --link-color: #0000ff;
+  
+  --grad: linear-gradient(317.63deg, #353589 -7.42%, #9a9aff 120.45%);
+}

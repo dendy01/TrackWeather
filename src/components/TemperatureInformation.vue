@@ -4,8 +4,7 @@
       <img src="../assets/sun_cloud.webp" alt="sun" />
       <span class="heading">{{ tempCity.temperature }}<sup>℃</sup></span>
       <h5>
-        min {{ tempCity.tempMin }}<sup>℃</sup> - max {{ tempCity.tempMax
-        }}<sup>℃</sup>
+        {{ tempCity.tempMin }}<sup>℃</sup> - {{ tempCity.tempMax }}<sup>℃</sup>
       </h5>
       <h3>{{ props.tempCity.description }}</h3>
     </div>
@@ -29,7 +28,7 @@ const props = defineProps({
   border-radius: 20px;
   display: flex;
   justify-content: center;
-  background: $--grad;
+  background: var(--grad);
 
   .info {
     display: flex;

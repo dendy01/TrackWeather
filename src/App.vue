@@ -85,8 +85,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import "./scss/variables.scss";
-
 * {
   margin: 0;
   padding: 0;
@@ -101,6 +99,6 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   border-radius: 20px;
-  background: $--background-color;
+  background: var(--background-color);
 }
 </style>
