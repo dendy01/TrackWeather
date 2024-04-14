@@ -12,6 +12,7 @@
       </div>
       <temperature-information :tempCity="tempCity" />
     </div>
+    <cards-info-temp :listTemp="listTemp" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@
 import DescriptionContent from "./components/DescriptionContent.vue";
 import IndicateCity from "./components/IndicateCity.vue";
 import TemperatureInformation from "./components/TemperatureInformation.vue";
+import CardsInfoTemp from "./components/CardsInfoTemp.vue";
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import { days, months } from "./globalVariable/utils.js";
@@ -43,22 +45,38 @@ const tempCity = ref({
   humidity: 0,
 });
 
-async function getWeather(cityValue) {
+const listTemp = ref([]);
+
+async function getWeather(city) {
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&units=metric&appid=3c3c89550e3a518b73d3d3920e7cf5d6`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=3c3c89550e3a518b73d3d3920e7cf5d6&lang=ru&tz=+03:00`
     );
 
-    console.log(response.data);
+    listTemp.value = [];
 
-    tempCity.value.temperature = Math.ceil(response.data.main.temp);
-    tempCity.value.tempMin = Math.ceil(response.data.main.temp_min);
-    tempCity.value.tempMax = Math.ceil(response.data.main.temp_max);
+    tempCity.value.temperature = Math.ceil(response.data.list[0].main.temp);
+    tempCity.value.tempMin = Math.ceil(response.data.list[0].main.temp_min);
+    tempCity.value.tempMax = Math.ceil(response.data.list[0].main.temp_max);
 
-    tempCity.value.nameCity = response.data.name;
-    tempCity.value.wind = response.data.wind.speed;
-    tempCity.value.description = response.data.weather[0].description;
-    tempCity.value.humidity = response.data.main.humidity;
+    tempCity.value.nameCity = response.data.city.name;
+    tempCity.value.wind = response.data.list[0].wind.speed;
+    tempCity.value.description = response.data.list[0].weather[0].description;
+    tempCity.value.humidity = response.data.list[0].main.humidity;
+
+    for (let i = 0; i < response.data.list.length; i += 1) {
+      let item1 = +response.data.list[i].dt_txt.split(" ")[0].split("-").at(-1);
+
+      let item2 = +response.data.list[i + 1].dt_txt
+        .split(" ")[0]
+        .split("-")
+        .at(-1);
+
+      if (item1 < item2) {
+        listTemp.value.push(response.data.list[i]);
+      }
+    }
+
     city.value = "";
   } catch (error) {
     console.log("Error");
@@ -66,7 +84,7 @@ async function getWeather(cityValue) {
 }
 
 onMounted(() => {
-  getWeather("Moscow");
+  getWeather(tempCity.value.nameCity);
 
   setInterval(() => {
     if (dayNow.value.seconds >= 60) {
@@ -99,6 +117,6 @@ onMounted(() => {
   justify-content: space-between;
   align-items: center;
   border-radius: 20px;
-  background: var(--background-color);
+  background-image: url("src/assets/banner-img.6da33f89.png");
 }
 </style>

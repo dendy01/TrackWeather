@@ -2,7 +2,7 @@
   <div class="info__temperature">
     <div class="info">
       <img src="../assets/sun_cloud.webp" alt="sun" />
-      <span class="heading">{{ tempCity.temperature }}<sup>℃</sup></span>
+      <span class="heading">{{ props.tempCity.temperature }}<sup>℃</sup></span>
       <h5>
         {{ tempCity.tempMin }}<sup>℃</sup> - {{ tempCity.tempMax }}<sup>℃</sup>
       </h5>
@@ -20,8 +20,6 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/variables.scss";
-
 .info__temperature {
   width: 250px;
   height: 350px;
@@ -40,20 +38,20 @@ const props = defineProps({
     }
 
     .heading {
-      color: white;
+      color: var(--color-white);
       font-size: 76px;
       line-height: 99px;
     }
 
     h5 {
-      color: white;
+      color: var(--color-white);
       font-size: 24px;
       line-height: 31px;
       margin-top: 0;
     }
 
     h3 {
-      color: white;
+      color: var(--color-white);
       font-size: 20px;
       margin-top: 5px;
     }

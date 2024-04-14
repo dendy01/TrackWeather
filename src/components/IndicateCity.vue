@@ -35,12 +35,12 @@ const getWeather = () => {
   padding: 10px;
   margin-left: 10px;
   border-radius: 10px;
-  background: white;
+  background: var(--color-white);
   transition: background-color 0.3s ease-in-out;
 }
 
 .btn:hover {
-  color: white;
+  color: var(--color-white);
   background-color: #9a9aff;
 }
 </style>

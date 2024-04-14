@@ -1,5 +1,7 @@
 :root {
+  --color-white: white;
   --background-color: #f0f0f0;
+  --primary: #353589;
 
   --icon-color-sunny: #ffd700;
   --icon-color-rainy: #4682b4;
