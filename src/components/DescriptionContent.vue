@@ -1,21 +1,26 @@
 <template>
   <div class="content__info">
     <div>
-      <h1 class="heading__1">{{ props.tempCity.nameCity }}</h1>
+      <h1 class="heading__1">{{ weather_props.tempCity.nameCity }}</h1>
     </div>
     <div class="currentDate">
       <p>
-        {{ props.days[props.dayNow.day] }},
-        {{ props.months[props.dayNow.month] }}
+        {{ weather_props.days[weather_props.dayNow.day] }},
+        {{ weather_props.months[weather_props.dayNow.month] }}
         {{ newDay }}
       </p>
       <p>
-        Обновлено от: {{ props.dayNow.hours }}:{{ props.dayNow.minutes }}:{{
-          props.dayNow.seconds
-        }}
+        Обновлено от: {{ weather_props.dayNow.hours }}:{{
+          weather_props.dayNow.minutes
+        }}:{{ weather_props.dayNow.seconds }}
       </p>
     </div>
     <description-weather :descriptCity="descriptCity"></description-weather>
+    <my-button
+      style="margin-top: 5px"
+      @click="$router.push('/FiveDaysOfWeather')"
+      >Прогноз на 5 дней</my-button
+    >
   </div>
 </template>
 
@@ -25,14 +30,14 @@ import DescriptionWeather from "./DescriptionWeather.vue";
 
 const newDay = ref(new Date().getDate());
 
-const props = defineProps({
+const weather_props = defineProps({
   tempCity: Object,
   dayNow: Object,
   days: Array,
   months: Array,
 });
 
-const descriptCity = ref(props.tempCity);
+const descriptCity = ref(weather_props.tempCity);
 </script>
 
 <style lang="scss" scoped>
