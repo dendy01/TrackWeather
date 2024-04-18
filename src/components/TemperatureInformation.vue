@@ -22,11 +22,14 @@ const props = defineProps({
 <style lang="scss" scoped>
 .info__temperature {
   width: 250px;
-  height: 350px;
+  height: auto;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   background: var(--grad);
+  font-family: Arial;
+  font-size: 20px;
+  padding-bottom: 10px;
 
   .info {
     display: flex;
@@ -54,6 +57,7 @@ const props = defineProps({
       color: var(--color-white);
       font-size: 20px;
       margin-top: 5px;
+      text-align: center;
     }
   }
 }
