@@ -1,27 +1,25 @@
 <template>
-  <div class="container">
-    <div class="content">
-      <indicate-city :nameCity="nameCity" @getWeath="getWeather">
-        <my-button @click="$router.push('/')" style="margin-left: 10px"
-          >Назад</my-button
-        >
-      </indicate-city>
-      <div class="heading">
-        <div>Дата</div>
-        <div>Время</div>
-        <div>Температура</div>
-        <div>Описание</div>
-        <div>Ветер</div>
-        <div>Влажность</div>
-      </div>
-      <div class="table" v-for="item in tempList" :key="item.dt">
-        <div>{{ item.dt_txt.split(" ")[0] }}</div>
-        <div>{{ item.dt_txt.split(" ")[1] }}</div>
-        <div>{{ Math.ceil(item.main.temp) }}<sup>℃</sup></div>
-        <div>{{ item.weather[0].description }}</div>
-        <div>{{ item.wind.speed }} м/с</div>
-        <div>{{ item.main.humidity }} %</div>
-      </div>
+  <div class="content">
+    <indicate-city :nameCity="nameCity" @getWeath="getWeather">
+      <my-button @click="$router.push('/')" style="margin-left: 10px"
+        >Назад</my-button
+      >
+    </indicate-city>
+    <div class="heading">
+      <div>Дата</div>
+      <div>Время</div>
+      <div>Температура</div>
+      <div>Описание</div>
+      <div>Ветер</div>
+      <div>Влажность</div>
+    </div>
+    <div class="table" v-for="item in tempList" :key="item.dt">
+      <div>{{ item.dt_txt.split(" ")[0] }}</div>
+      <div>{{ item.dt_txt.split(" ")[1] }}</div>
+      <div>{{ Math.ceil(item.main.temp) }}<sup>℃</sup></div>
+      <div>{{ item.weather[0].description }}</div>
+      <div>{{ item.wind.speed }} м/с</div>
+      <div>{{ item.main.humidity }} %</div>
     </div>
   </div>
 </template>
@@ -55,44 +53,35 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  padding: 50px;
-  width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 20px;
-  background-image: url("src/assets/banner-img.6da33f89.png");
+.content {
+  width: 100%;
+  height: 500px;
+  font-family: Arial;
+  font-size: 20px;
+  overflow: auto;
+  flex-direction: column;
 
-  .content {
-    width: 100%;
-    height: 500px;
-    font-family: Arial;
-    font-size: 20px;
-    overflow: auto;
-
-    .heading {
-      margin-top: 10px;
-    }
-
-    .heading,
-    .table {
-      height: 60px;
-      display: flex;
-      justify-content: space-between;
-      color: var(--color-white);
-
-      div {
-        height: 100%;
-        width: 100%;
-        text-align: center;
-      }
-    }
+  .heading {
+    margin-top: 10px;
   }
 
-  .content::-webkit-scrollbar {
-    display: none;
+  .heading,
+  .table {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-white);
+
+    div {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+    }
   }
+}
+
+.content::-webkit-scrollbar {
+  display: none;
 }
 </style>

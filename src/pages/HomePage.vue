@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="content">
+  <div class="content">
+    <div>
       <indicate-city @getWeath="getWeather" />
       <description-content
         :tempCity="tempCity"
@@ -9,7 +9,9 @@
         :days="days"
       />
     </div>
-    <temperature-information :tempCity="tempCity" />
+    <div>
+      <temperature-information :tempCity="tempCity" />
+    </div>
   </div>
   <cards-info-temp :listTemp="listTemp" />
 </template>
@@ -109,14 +111,11 @@ onMounted(() => {
   box-sizing: border-box;
 }
 
-.container {
+.content {
   padding: 50px;
-  width: 1000px;
-  margin: 0 auto;
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border-radius: 20px;
   background-image: url("src/assets/banner-img.6da33f89.png");
 }
 </style>
