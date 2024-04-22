@@ -1,7 +1,7 @@
 <template>
   <div class="info__temperature">
     <div class="info">
-      <img src="../assets/sun_cloud.webp" alt="sun" />
+      <img src="@/assets/sun_cloud.webp" alt="sun" />
       <span class="heading">{{ props.tempCity.temperature }}<sup>℃</sup></span>
       <h5>
         {{ tempCity.tempMin }}<sup>℃</sup> - {{ tempCity.tempMax }}<sup>℃</sup>
@@ -16,6 +16,7 @@ import { defineProps } from "vue";
 
 const props = defineProps({
   tempCity: Object,
+  default: () => {},
 });
 </script>
 

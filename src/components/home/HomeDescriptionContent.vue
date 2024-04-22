@@ -1,18 +1,18 @@
 <template>
   <div class="content__info">
     <div>
-      <h1 class="heading__1">{{ weather_props.tempCity.nameCity }}</h1>
+      <h1 class="heading__1">{{ weatherProps.tempCity.nameCity }}</h1>
     </div>
     <div class="currentDate">
       <p>
-        {{ weather_props.days[weather_props.dayNow.day] }},
-        {{ weather_props.months[weather_props.dayNow.month] }}
+        {{ weatherProps.days[weatherProps.dayNow.day] }},
+        {{ weatherProps.months[weatherProps.dayNow.month] }}
         {{ newDay }}
       </p>
       <p>
-        Обновлено от: {{ weather_props.dayNow.hours }}:{{
-          weather_props.dayNow.minutes
-        }}:{{ weather_props.dayNow.seconds }}
+        Обновлено от: {{ weatherProps.dayNow.hours }}:{{
+          weatherProps.dayNow.minutes
+        }}:{{ weatherProps.dayNow.seconds }}
       </p>
     </div>
     <description-weather :descriptCity="descriptCity"></description-weather>
@@ -26,18 +26,22 @@
 
 <script setup>
 import { defineProps, ref } from "vue";
-import DescriptionWeather from "./DescriptionWeather.vue";
+import DescriptionWeather from "@/components/home/HomeDescriptionWeather.vue";
 
 const newDay = ref(new Date().getDate());
 
-const weather_props = defineProps({
+const weatherProps = defineProps({
   tempCity: Object,
+  default: () => {},
   dayNow: Object,
+  default: () => {},
   days: Array,
+  default: () => [],
   months: Array,
+  default: () => [],
 });
 
-const descriptCity = ref(weather_props.tempCity);
+const descriptCity = ref(weatherProps.tempCity);
 </script>
 
 <style lang="scss" scoped>

@@ -1,7 +1,7 @@
 import { ref } from "vue";
 
 export const days = ref(["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]);
-export const months = [
+export const months = ref([
   "Январь",
   "Февраль",
   "Март",
@@ -14,4 +14,4 @@ export const months = [
   "Октябрь",
   "Ноябрь",
   "Декабрь",
-];
+]);

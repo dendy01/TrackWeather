@@ -7,10 +7,10 @@ import App from "./App.vue";
 import components from "./components/UI";
 
 const app = createApp(App);
-//const pinia = createPinia();
+const pinia = createPinia();
 
 components.forEach((component) => {
   app.component(component.__name, component);
 });
 
-app.use(router).mount("#app");
+app.use(pinia).use(router).mount("#app");

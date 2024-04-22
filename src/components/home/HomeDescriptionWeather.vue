@@ -1,17 +1,11 @@
 <template>
   <div class="descript__weather">
-    <div style="display: flex; align-items: center">
-      <img
-        src="../assets/w-cloud.webp"
-        style="background: #7668e5; padding: 6px; border-radius: 7px"
-      />
+    <div class="descript__item1">
+      <img src="@/assets/w-cloud.webp" />
       <p>Ветер: {{ props.descriptCity.wind }}м/с</p>
     </div>
-    <div style="display: flex; align-items: center; margin-top: 5px">
-      <img
-        src="../assets/w-rain.webp"
-        style="background: #7668e5; padding: 5px; border-radius: 7px"
-      />
+    <div class="descript__item2">
+      <img src="@/assets/w-rain.webp" />
       <p>Влажность: {{ props.descriptCity.humidity }}%</p>
     </div>
   </div>
@@ -22,6 +16,7 @@ import { defineProps } from "vue";
 
 const props = defineProps({
   descriptCity: Object,
+  default: () => {},
 });
 </script>
 
@@ -37,6 +32,24 @@ const props = defineProps({
 
   p {
     margin-left: 20px;
+  }
+
+  .descript__item1,
+  .descript__item2 {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 40px;
+      height: 35px;
+      background: #7668e5;
+      padding: 5px;
+      border-radius: 7px;
+    }
+  }
+
+  .descript__item2 {
+    margin-top: 5px;
   }
 }
 </style>

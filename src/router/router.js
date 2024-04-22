@@ -1,5 +1,5 @@
-import Main from "../pages/FiveDaysOfWeather.vue";
-import HomePage from "../pages/HomePage.vue";
+import Main from "@/pages/FiveDaysOfWeather.vue";
+import HomePage from "@/pages/HomePage.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
