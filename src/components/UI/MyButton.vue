@@ -10,7 +10,7 @@ import { ref } from "vue";
 const name = ref("my-button");
 </script>
 
-<style>
+<style lang="scss" scoped>
 .btn {
   border: none;
   padding: 10px;
@@ -19,10 +19,10 @@ const name = ref("my-button");
   transition: background-color 0.3s ease-in-out;
   opacity: 0.9;
   font-family: Arial;
-}
 
-.btn:hover {
-  color: var(--color-white);
-  background-color: #9a9aff;
+  &:hover {
+    color: var(--color-white);
+    background-color: #9a9aff;
+  }
 }
 </style>

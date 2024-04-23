@@ -46,7 +46,7 @@ onMounted(() => {
   width: 100%;
   height: 500px;
   font-family: Arial;
-  font-size: 20px;
+  font-size: 18px;
   overflow: auto;
   flex-direction: column;
   padding: 40px;
