@@ -20,7 +20,13 @@ export const useWeather = defineStore("weatherModule", {
       humidity: 0,
     },
     listTemp: [],
+    visibleFiveDays: false,
   }),
+  getters: {
+    hideFiveDays() {
+      this.visibleFiveDays = true;
+    },
+  },
   actions: {
     async getWeather(city) {
       try {

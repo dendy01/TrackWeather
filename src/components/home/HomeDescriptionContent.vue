@@ -11,12 +11,15 @@
       </p>
       <p>
         Обновлено от: {{ weatherProps.dayNow.hours }}:{{
-          weatherProps.dayNow.minutes
-        }}:{{ weatherProps.dayNow.seconds }}
+          weatherProps.dayNow.minutes < 10
+            ? "0" + weatherProps.dayNow.minutes
+            : weatherProps.dayNow.minutes
+        }}
       </p>
     </div>
     <description-weather :descriptCity="descriptCity"></description-weather>
     <my-button
+      v-if="weatherStore.visibleFiveDays"
       style="margin-top: 5px"
       @click="$router.push('/FiveDaysOfWeather')"
       >Прогноз на 5 дней</my-button
@@ -27,6 +30,9 @@
 <script setup>
 import { defineProps, ref } from "vue";
 import DescriptionWeather from "@/components/home/HomeDescriptionWeather.vue";
+import { useWeather } from "@/store/homePageStore.js";
+
+const weatherStore = useWeather();
 
 const newDay = ref(new Date().getDate());
 
@@ -45,10 +51,6 @@ const descriptCity = ref(weatherProps.tempCity);
 </script>
 
 <style lang="scss" scoped>
-.content__info {
-  font-family: Arial;
-}
-
 .heading__1 {
   font-size: 76px;
   line-height: 99px;
@@ -57,7 +59,7 @@ const descriptCity = ref(weatherProps.tempCity);
 }
 
 .currentDate {
-  width: 350px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;

@@ -37,6 +37,8 @@ const list = ref([
     src: smallCloudy,
   },
   { id: 4, description: "ясно", src: sun },
+  { id: 5, description: "переменная облачность", src: smallCloudy },
+  { id: 5, description: "небольшая облачность", src: smallCloudy },
 ]);
 
 const imgSet = (description) => {
@@ -58,7 +60,6 @@ const imgSet = (description) => {
   align-items: center;
   background: var(--background-color);
   text-align: center;
-  font-family: Arial;
   font-size: 15px;
 
   .img__item {

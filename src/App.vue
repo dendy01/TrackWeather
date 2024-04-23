@@ -18,5 +18,6 @@
 .container {
   width: 1000px;
   margin: 0 auto;
+  font-family: Arial;
 }
 </style>

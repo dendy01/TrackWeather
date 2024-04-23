@@ -28,7 +28,6 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   background: var(--grad);
-  font-family: Arial;
   font-size: 20px;
   padding-bottom: 10px;
 
