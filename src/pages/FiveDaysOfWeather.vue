@@ -1,28 +1,36 @@
 <template>
-  <div class="content">
-    <indicate-city
-      :nameCity="weatherStore.nameCity"
-      @getWeath="weatherStore.getWeather"
-    >
-      <my-button @click="$router.push('/')" style="margin-left: 10px"
-        >Назад</my-button
+  <div class="container">
+    <div class="content">
+      <indicate-city
+        :nameCity="weatherStore.nameCity"
+        @getWeath="weatherStore.getWeather"
       >
-    </indicate-city>
-    <div class="heading">
-      <div>Дата</div>
-      <div>Время</div>
-      <div>Температура</div>
-      <div>Описание</div>
-      <div>Ветер</div>
-      <div>Влажность</div>
-    </div>
-    <div class="table" v-for="item in weatherStore.tempList" :key="item.dt">
-      <div>{{ item.dt_txt.split(" ")[0] }}</div>
-      <div>{{ item.dt_txt.split(" ")[1] }}</div>
-      <div>{{ Math.ceil(item.main.temp) }}<sup>℃</sup></div>
-      <div>{{ item.weather[0].description }}</div>
-      <div>{{ item.wind.speed }} м/с</div>
-      <div>{{ item.main.humidity }} %</div>
+        <my-button @click="$router.push('/')" style="margin-left: 10px"
+          >Назад</my-button
+        >
+      </indicate-city>
+      <table>
+        <thead>
+          <tr>
+            <th>Дата</th>
+            <th>Время</th>
+            <th>Температура</th>
+            <th>Описание</th>
+            <th>Ветер</th>
+            <th>Влажность</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in weatherStore.tempList" :key="item.dt">
+            <td>{{ item.dt_txt.split(" ")[0] }}</td>
+            <td>{{ item.dt_txt.split(" ")[1] }}</td>
+            <td>{{ Math.ceil(item.main.temp) }}<sup>℃</sup></td>
+            <td>{{ item.weather[0].description }}</td>
+            <td>{{ item.wind.speed }} м/с</td>
+            <td>{{ item.main.humidity }} %</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -34,45 +42,39 @@ import { useWeatherFiveDays } from "@/store/fiveDaysStore.js";
 
 const weatherStore = useWeatherFiveDays();
 
-console.log(weatherStore);
-
 onMounted(() => {
   weatherStore.getWeather(weatherStore.nameCity);
 });
 </script>
 
 <style lang="scss" scoped>
-.content {
-  width: 100%;
-  height: 500px;
-  font-size: 18px;
-  overflow: auto;
-  flex-direction: column;
-  padding: 40px;
-  border-radius: 20px;
-  background-image: var(--background-img);
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  font-family: Arial;
 
-  .heading {
-    margin-top: 10px;
-  }
+  .content {
+    width: 100%;
+    height: 500px;
+    font-size: 18px;
+    overflow: auto;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 20px;
+    background-image: var(--background-img);
 
-  .heading,
-  .table {
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    color: var(--color-white);
-
-    div {
-      height: 100%;
-      width: 100%;
-      text-align: center;
+    table thead th,
+    table tbody td {
+      height: 60px;
+      width: 145px;
       padding: 15px;
+      text-align: center;
+      color: var(--color-white);
     }
-  }
 
-  &::-webkit-scrollbar {
-    display: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 </style>

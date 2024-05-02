@@ -1,21 +1,16 @@
 import FiveDays from "@/pages/FiveDaysOfWeather.vue";
 import HomePage from "@/pages/HomePage.vue";
 import Authorization from "@/pages/Authorization.vue";
-import Registration from "@/pages/Registration.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/FiveDaysOfWeather",
+    path: "/five-days-of-weather",
     component: FiveDays,
   },
   {
-    path: "/Authorization",
+    path: "/authorization",
     component: Authorization,
-  },
-  {
-    path: "/Registration",
-    component: Registration,
   },
   {
     path: "/",

@@ -2,19 +2,31 @@
   <div class="nav">
     <h3>Войдите или зарегистрируйтесь чтобы увидеть прогноз на 5 дней</h3>
     <div>
-      <my-button
-        style="margin-right: 10px"
-        @click="$router.push('/Authorization')"
-        >Войти</my-button
-      >
-      <my-button @click="$router.push('/Registration')"
-        >Зарегистрироваться</my-button
-      >
+      <my-button style="margin-right: 10px" @click="hideGoIn">Войти</my-button>
+      <my-button @click="hideRegistration">Зарегистрироваться</my-button>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+import { useWeather } from "@/store/homePageStore.js";
+
+const weatherStore = useWeather();
+const router = useRouter();
+
+const hideGoIn = () => {
+  router.push("/authorization");
+  weatherStore.visibleGoIn = true;
+  weatherStore.visibleRegistration = false;
+};
+
+const hideRegistration = () => {
+  router.push("/authorization");
+  weatherStore.visibleGoIn = false;
+  weatherStore.visibleRegistration = true;
+};
+</script>
 
 <style lang="scss" scoped>
 .nav {

@@ -1,7 +1,7 @@
 <template>
   <div class="content__info">
     <div>
-      <h1 class="heading__1">{{ weatherProps.tempCity.nameCity }}</h1>
+      <h1>{{ weatherProps.tempCity.nameCity }}</h1>
     </div>
     <div class="currentDate">
       <p>
@@ -21,7 +21,7 @@
     <my-button
       v-if="weatherStore.visibleFiveDays"
       style="margin-top: 5px"
-      @click="$router.push('/FiveDaysOfWeather')"
+      @click="$router.push('/five-days-of-weather')"
       >Прогноз на 5 дней</my-button
     >
   </div>
@@ -51,7 +51,7 @@ const descriptCity = ref(weatherProps.tempCity);
 </script>
 
 <style lang="scss" scoped>
-.heading__1 {
+h1 {
   font-size: 76px;
   line-height: 99px;
   font-weight: 700;

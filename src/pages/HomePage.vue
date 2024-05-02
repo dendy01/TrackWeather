@@ -1,20 +1,22 @@
 <template>
-  <home-navbar></home-navbar>
-  <div class="content">
-    <div>
-      <indicate-city @getWeath="weatherStore.getWeather" />
-      <description-content
-        :tempCity="weatherStore.tempCity"
-        :dayNow="weatherStore.dayNow"
-        :months="months"
-        :days="days"
-      />
+  <div class="container">
+    <home-navbar></home-navbar>
+    <div class="content">
+      <div>
+        <indicate-city @getWeath="weatherStore.getWeather" />
+        <description-content
+          :tempCity="weatherStore.tempCity"
+          :dayNow="weatherStore.dayNow"
+          :months="months"
+          :days="days"
+        />
+      </div>
+      <div>
+        <temperature-information :tempCity="weatherStore.tempCity" />
+      </div>
     </div>
-    <div>
-      <temperature-information :tempCity="weatherStore.tempCity" />
-    </div>
+    <cards-info-temp :listTemp="weatherStore.listTemp" />
   </div>
-  <cards-info-temp :listTemp="weatherStore.listTemp" />
 </template>
 
 <script setup>
@@ -35,11 +37,17 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.content {
-  padding: 50px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  background-image: var(--background-img);
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  font-family: Arial;
+
+  .content {
+    padding: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-image: var(--background-img);
+  }
 }
 </style>

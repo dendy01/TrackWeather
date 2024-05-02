@@ -20,5 +20,3 @@ const getWeather = () => {
   city.value = "";
 };
 </script>
-
-<style lang="scss" scoped></style>
