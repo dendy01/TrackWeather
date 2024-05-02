@@ -3,8 +3,10 @@
   "private": false,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://dendy01.github.io/TrackWeather",
   "scripts": {
     "dev": "vite",
+    "deploy": "npm run build && gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
