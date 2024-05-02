@@ -20,3 +20,11 @@ const getWeather = () => {
   city.value = "";
 };
 </script>
+
+<style lang="scss" scoped>
+form {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+</style>

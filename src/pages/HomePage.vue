@@ -26,7 +26,7 @@ import IndicateCity from "@/components/IndicateCity.vue";
 import TemperatureInformation from "@/components/home/HomeTemperatureInformation.vue";
 import CardsInfoTemp from "@/components/home/HomeCardsInfoTemperature.vue";
 import { useWeather } from "@/store/homePageStore.js";
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
 import { days, months } from "@/globalVariable/utils.js";
 
 const weatherStore = useWeather();
@@ -48,6 +48,23 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     background-image: var(--background-img);
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content div {
+      width: 300px;
+      margin-top: 10px;
+    }
   }
 }
 </style>

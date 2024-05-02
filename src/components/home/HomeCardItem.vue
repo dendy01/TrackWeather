@@ -91,4 +91,11 @@ const imgSet = (description) => {
     }
   }
 }
+
+@media (max-width: 500px) {
+  .card {
+    width: 300px;
+    text-align: center;
+  }
+}
 </style>

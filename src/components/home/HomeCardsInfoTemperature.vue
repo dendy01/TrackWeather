@@ -23,4 +23,18 @@ const props = defineProps({
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 500px) {
+  .container__cards {
+    width: 100%;
+    display: block;
+  }
+
+  .cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
 </style>
