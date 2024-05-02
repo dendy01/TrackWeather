@@ -20,7 +20,7 @@ const routes = [
 
 const router = createRouter({
   routes,
-  history: createWebHistory(),
+  history: createWebHistory("/TrackWeather"),
 });
 
 export default router;
