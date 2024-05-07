@@ -2,27 +2,29 @@
   <div class="nav">
     <h3>Войдите или зарегистрируйтесь чтобы увидеть прогноз на 5 дней</h3>
     <div>
-      <my-button style="margin-right: 10px" @click="hideGoIn">Войти</my-button>
-      <my-button @click="hideRegistration">Зарегистрироваться</my-button>
+      <my-button style="margin-right: 10px" @click="visibleFormGoIn"
+        >Войти</my-button
+      >
+      <my-button @click="visibleFormRegistration">Зарегистрироваться</my-button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
 import { useWeather } from "@/store/homePageStore.js";
+import { defineEmits } from "vue";
 
 const weatherStore = useWeather();
-const router = useRouter();
+const emit = defineEmits(["visible"]);
 
-const hideGoIn = () => {
-  router.push("/authorization");
+const visibleFormGoIn = () => {
+  emit("visible", true);
   weatherStore.visibleGoIn = true;
   weatherStore.visibleRegistration = false;
 };
 
-const hideRegistration = () => {
-  router.push("/authorization");
+const visibleFormRegistration = () => {
+  emit("visible", true);
   weatherStore.visibleGoIn = false;
   weatherStore.visibleRegistration = true;
 };
@@ -37,5 +39,21 @@ const hideRegistration = () => {
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
+}
+
+@media (max-width: 500px) {
+  .nav {
+    padding: 10px 0 10px 0;
+
+    h3 {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    div {
+      width: 500px;
+      text-align: center;
+    }
+  }
 }
 </style>

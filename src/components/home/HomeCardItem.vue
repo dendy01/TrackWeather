@@ -23,8 +23,10 @@ import smallCloudy from "@/assets/cloud_small.webp";
 import sun from "@/assets/sun_small.webp";
 
 const props = defineProps({
-  itemTemp: Object,
-  default: () => {},
+  itemTemp: {
+    type: Object,
+    default: () => {},
+  },
 });
 
 const list = ref([
@@ -39,6 +41,8 @@ const list = ref([
   { id: 4, description: "ясно", src: sun },
   { id: 5, description: "переменная облачность", src: smallCloudy },
   { id: 5, description: "небольшая облачность", src: smallCloudy },
+  { id: 1, description: "снег", src: rain },
+  { id: 1, description: "небольшой снег", src: rain },
 ]);
 
 const imgSet = (description) => {

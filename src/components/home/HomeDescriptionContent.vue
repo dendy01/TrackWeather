@@ -17,7 +17,7 @@
         }}
       </p>
     </div>
-    <description-weather :descriptCity="descriptCity"></description-weather>
+    <description-weather :descriptCity="descriptCity" />
     <my-button
       v-if="weatherStore.visibleFiveDays"
       style="margin-top: 5px"
@@ -37,14 +37,22 @@ const weatherStore = useWeather();
 const newDay = ref(new Date().getDate());
 
 const weatherProps = defineProps({
-  tempCity: Object,
-  default: () => {},
-  dayNow: Object,
-  default: () => {},
-  days: Array,
-  default: () => [],
-  months: Array,
-  default: () => [],
+  tempCity: {
+    type: Object,
+    default: () => {},
+  },
+  dayNow: {
+    type: Object,
+    default: () => {},
+  },
+  days: {
+    type: Array,
+    default: () => [],
+  },
+  months: {
+    type: Array,
+    default: () => [],
+  },
 });
 
 const descriptCity = ref(weatherProps.tempCity);
@@ -55,7 +63,8 @@ h1 {
   font-size: 76px;
   line-height: 99px;
   font-weight: 700;
-  color: var(--color-white);
+  color: rgb(255, 255, 255);
+  opacity: 0.9;
 }
 
 .currentDate {
@@ -64,7 +73,8 @@ h1 {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  color: var(--color-white);
+  color: rgb(255, 255, 255);
+  opacity: 0.9;
 
   p {
     font-size: 18px;

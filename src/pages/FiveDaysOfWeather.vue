@@ -14,7 +14,7 @@
           <tr>
             <th>Дата</th>
             <th>Время</th>
-            <th>Температура</th>
+            <th>Темп.</th>
             <th>Описание</th>
             <th>Ветер</th>
             <th>Влажность</th>
@@ -22,8 +22,19 @@
         </thead>
         <tbody>
           <tr v-for="item in weatherStore.tempList" :key="item.dt">
-            <td>{{ item.dt_txt.split(" ")[0] }}</td>
-            <td>{{ item.dt_txt.split(" ")[1] }}</td>
+            <td>
+              {{
+                item.dt_txt
+                  .split(" ")[0]
+                  .split("-")
+                  .splice(1, 2)
+                  .reverse()
+                  .join(".")
+              }}
+            </td>
+            <td>
+              {{ item.dt_txt.split(" ")[1].split(":").splice(0, 2).join(":") }}
+            </td>
             <td>{{ Math.ceil(item.main.temp) }}<sup>℃</sup></td>
             <td>{{ item.weather[0].description }}</td>
             <td>{{ item.wind.speed }} м/с</td>
@@ -51,7 +62,6 @@ onMounted(() => {
 .container {
   width: 1000px;
   margin: 0 auto;
-  font-family: Arial;
 
   .content {
     width: 100%;
@@ -62,18 +72,47 @@ onMounted(() => {
     padding: 40px;
     border-radius: 20px;
     background-image: var(--background-img);
+    background-size: 100% 100%;
 
     table thead th,
     table tbody td {
-      height: 60px;
-      width: 145px;
+      width: 18%;
       padding: 15px;
       text-align: center;
-      color: var(--color-white);
+      color: rgb(255, 255, 255);
+      opacity: 0.9;
     }
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+    padding: 0;
+
+    .content {
+      height: 100%;
+      padding: 5px;
+      border-radius: 0px;
+      background-size: 1000px 100%;
+      font-size: 14px;
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table thead th,
+      table tbody td {
+        padding: 15px;
+        text-align: center;
+        color: var(--color-white);
+        padding: 2px;
+      }
     }
   }
 }

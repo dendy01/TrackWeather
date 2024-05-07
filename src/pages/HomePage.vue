@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <home-navbar></home-navbar>
+    <home-navbar @visible="showDialog" />
+    <my-dialog v-model:show="dialogVisible">
+      <authorization @hide="hideDialog"></authorization>
+    </my-dialog>
     <div class="content">
       <div>
         <indicate-city @getWeath="weatherStore.getWeather" />
@@ -20,16 +23,26 @@
 </template>
 
 <script setup>
+import Authorization from "./Authorization.vue";
 import HomeNavbar from "@/components/home/HomeNavbar.vue";
 import DescriptionContent from "@/components/home/HomeDescriptionContent.vue";
 import IndicateCity from "@/components/IndicateCity.vue";
 import TemperatureInformation from "@/components/home/HomeTemperatureInformation.vue";
 import CardsInfoTemp from "@/components/home/HomeCardsInfoTemperature.vue";
 import { useWeather } from "@/store/homePageStore.js";
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { days, months } from "@/globalVariable/utils.js";
 
 const weatherStore = useWeather();
+const dialogVisible = ref(false);
+
+const showDialog = () => {
+  dialogVisible.value = true;
+};
+
+const hideDialog = () => {
+  dialogVisible.value = false;
+};
 
 onMounted(() => {
   weatherStore.getWeather(weatherStore.tempCity.nameCity);
@@ -40,7 +53,6 @@ onMounted(() => {
 .container {
   width: 1000px;
   margin: 0 auto;
-  font-family: Arial;
 
   .content {
     padding: 50px;
@@ -48,6 +60,7 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     background-image: var(--background-img);
+    background-size: 100% 100%;
   }
 }
 
@@ -59,6 +72,7 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-size: 100% 100%;
     }
 
     .content div {

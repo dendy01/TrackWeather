@@ -24,7 +24,7 @@ const updateInput = (event) => {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .input {
   padding: 10px;
   border-radius: 10px;

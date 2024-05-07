@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import axios from "axios";
 
 export const useWeather = defineStore("weatherModule", () => {
@@ -26,9 +26,6 @@ export const useWeather = defineStore("weatherModule", () => {
   const visibleGoin = ref(false);
   const visibleRegistration = ref(false);
   const users = ref([]);
-  const hideFiveDays = computed(() => {
-    visibleFiveDays.value = true;
-  });
 
   async function getWeather(city) {
     try {
@@ -70,7 +67,6 @@ export const useWeather = defineStore("weatherModule", () => {
     visibleGoin,
     visibleRegistration,
     users,
-    hideFiveDays,
     getWeather,
   };
 });

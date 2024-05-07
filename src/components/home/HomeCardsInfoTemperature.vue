@@ -11,8 +11,10 @@ import { defineProps } from "vue";
 import ImgCardItem from "./HomeCardItem.vue";
 
 const props = defineProps({
-  listTemp: Array,
-  default: () => [],
+  listTemp: {
+    type: Array,
+    default: () => [],
+  },
 });
 </script>
 
