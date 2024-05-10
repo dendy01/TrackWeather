@@ -5,7 +5,9 @@
       <my-button style="margin-right: 10px" @click="visibleFormGoIn"
         >Войти</my-button
       >
-      <my-button @click="visibleFormRegistration">Зарегистрироваться</my-button>
+      <my-button class="my-btn" @click="visibleFormRegistration"
+        >Зарегистрироваться</my-button
+      >
     </div>
   </div>
 </template>
@@ -53,6 +55,14 @@ const visibleFormRegistration = () => {
     div {
       width: 500px;
       text-align: center;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .nav {
+    .my-btn {
+      margin-top: 10px;
     }
   }
 }

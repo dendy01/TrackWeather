@@ -25,14 +25,11 @@
 
 <script setup>
 import { useWeather } from "@/store/homePageStore.js";
-import { useRouter } from "vue-router";
 import { ref, defineProps, defineEmits } from "vue";
 
 const userName = ref("");
 const userSurname = ref("");
 const user = ref("");
-
-const router = useRouter();
 const weatherStore = useWeather();
 
 const emit = defineEmits(["hide"]);
