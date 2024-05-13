@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <home-navbar @visible="showDialog" />
+    <HomeNavbar @visible="showDialog" />
     <my-dialog v-model:show="dialogVisible">
-      <authorization @hide="hideDialog"></authorization>
+      <Authorization @hide="hideDialog" />
     </my-dialog>
     <div class="content">
       <div>
-        <indicate-city @getWeath="weatherStore.getWeather" />
-        <description-content
+        <IndicateCity @getWeath="weatherStore.getWeather" />
+        <DescriptionContent
           :tempCity="weatherStore.tempCity"
           :dayNow="weatherStore.dayNow"
           :months="months"
@@ -15,10 +15,10 @@
         />
       </div>
       <div>
-        <temperature-information :tempCity="weatherStore.tempCity" />
+        <TemperatureInformation :tempCity="weatherStore.tempCity" />
       </div>
     </div>
-    <cards-info-temp :listTemp="weatherStore.listTemp" />
+    <CardsInfoTemp :listTemp="weatherStore.listTemp" />
   </div>
 </template>
 

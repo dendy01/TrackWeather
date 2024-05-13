@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <div class="content">
-      <indicate-city
+      <IndicateCity
         :nameCity="weatherStore.nameCity"
         @getWeath="weatherStore.getWeather"
       >
         <my-button @click="$router.push('/')" style="margin-left: 10px"
           >Назад</my-button
         >
-      </indicate-city>
+      </IndicateCity>
       <table>
         <thead>
           <tr>

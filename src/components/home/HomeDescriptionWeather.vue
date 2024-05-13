@@ -1,10 +1,10 @@
 <template>
   <div class="descript__weather">
-    <div class="descript__item1">
+    <div class="descript__item">
       <img src="@/assets/w-cloud.webp" />
       <p>Ветер: {{ props.descriptCity.wind }}м/с</p>
     </div>
-    <div class="descript__item2">
+    <div class="descript__item item">
       <img src="@/assets/w-rain.webp" />
       <p>Влажность: {{ props.descriptCity.humidity }}%</p>
     </div>
@@ -34,8 +34,7 @@ const props = defineProps({
     margin-left: 20px;
   }
 
-  .descript__item1,
-  .descript__item2 {
+  .descript__item {
     display: flex;
     align-items: center;
 
@@ -48,7 +47,7 @@ const props = defineProps({
     }
   }
 
-  .descript__item2 {
+  .item {
     margin-top: 5px;
   }
 }

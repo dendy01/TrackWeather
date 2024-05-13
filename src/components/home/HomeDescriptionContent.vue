@@ -17,7 +17,7 @@
         }}
       </p>
     </div>
-    <description-weather :descriptCity="descriptCity" />
+    <DescriptionWeather :descriptCity="descriptCity" />
     <my-button
       v-if="weatherStore.visibleFiveDays"
       style="margin-top: 5px"

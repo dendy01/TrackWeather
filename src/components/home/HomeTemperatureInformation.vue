@@ -1,6 +1,6 @@
 <template>
   <div class="info__temperature">
-    <div class="info">
+    <div>
       <img src="@/assets/sun_cloud.webp" alt="sun" />
       <span class="heading">{{ props.tempCity.temperature }}<sup>℃</sup></span>
       <h5>
@@ -31,7 +31,7 @@ const props = defineProps({
   font-size: 20px;
   padding-bottom: 10px;
 
-  .info {
+  div {
     display: flex;
     flex-direction: column;
     align-items: center;

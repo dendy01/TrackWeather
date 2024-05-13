@@ -94,10 +94,8 @@ const imgSet = (description) => {
       color: var(--color-white);
     }
   }
-}
 
-@media (max-width: 500px) {
-  .card {
+  @media screen and (max-width: 500px) {
     width: 300px;
     text-align: center;
   }

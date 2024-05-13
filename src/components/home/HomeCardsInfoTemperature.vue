@@ -1,7 +1,7 @@
 <template>
   <div class="container__cards">
     <div v-for="item in props.listTemp" :key="item.td" class="cards">
-      <img-card-item :itemTemp="item" />
+      <ImgCardItem :itemTemp="item" />
     </div>
   </div>
 </template>
