@@ -23,14 +23,7 @@
         <tbody>
           <tr v-for="item in weatherStore.tempList" :key="item.dt">
             <td>
-              {{
-                item.dt_txt
-                  .split(" ")[0]
-                  .split("-")
-                  .splice(1, 2)
-                  .reverse()
-                  .join(".")
-              }}
+              {{ showDate(item.dt_txt) }}
             </td>
             <td>
               {{ item.dt_txt.split(" ")[1].split(":").splice(0, 2).join(":") }}
@@ -52,6 +45,10 @@ import IndicateCity from "@/components/IndicateCity.vue";
 import { useWeatherFiveDays } from "@/store/fiveDaysStore.js";
 
 const weatherStore = useWeatherFiveDays();
+
+const showDate = (date) => {
+  return date.split(" ")[0].split("-").splice(1, 2).reverse().join(".");
+};
 
 onMounted(() => {
   weatherStore.getWeather(weatherStore.nameCity);
