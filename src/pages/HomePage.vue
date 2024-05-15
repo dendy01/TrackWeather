@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <HomeNavbar @visible="showDialog" />
-    <my-dialog v-model:show="dialogVisible">
+    <MyDialog v-model="visibleDialog">
       <Authorization @hide="hideDialog" />
-    </my-dialog>
+    </MyDialog>
     <div class="content">
       <div>
         <IndicateCity @getWeath="weatherStore.getWeather" />
@@ -34,14 +34,14 @@ import { ref, onMounted } from "vue";
 import { days, months } from "@/globalVariable/utils.js";
 
 const weatherStore = useWeather();
-const dialogVisible = ref(false);
+const visibleDialog = ref(false);
 
 const showDialog = () => {
-  dialogVisible.value = true;
+  visibleDialog.value = true;
 };
 
 const hideDialog = () => {
-  dialogVisible.value = false;
+  visibleDialog.value = false;
 };
 
 onMounted(() => {

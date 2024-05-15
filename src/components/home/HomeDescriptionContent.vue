@@ -63,7 +63,7 @@ h1 {
   font-size: 76px;
   line-height: 99px;
   font-weight: 700;
-  color: rgb(255, 255, 255);
+  color: var(--grad);
   opacity: 0.9;
 }
 
@@ -73,7 +73,7 @@ h1 {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  color: rgb(255, 255, 255);
+  color: var(--grad);
   opacity: 0.9;
 
   p {

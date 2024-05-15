@@ -26,7 +26,7 @@
               {{ showDate(item.dt_txt) }}
             </td>
             <td>
-              {{ item.dt_txt.split(" ")[1].split(":").splice(0, 2).join(":") }}
+              {{ showTime(item.dt_txt) }}
             </td>
             <td>{{ Math.ceil(item.main.temp) }}<sup>℃</sup></td>
             <td>{{ item.weather[0].description }}</td>
@@ -48,6 +48,10 @@ const weatherStore = useWeatherFiveDays();
 
 const showDate = (date) => {
   return date.split(" ")[0].split("-").splice(1, 2).reverse().join(".");
+};
+
+const showTime = (time) => {
+  return time.split(" ")[1].split(":").splice(0, 2).join(":");
 };
 
 onMounted(() => {
@@ -76,7 +80,7 @@ onMounted(() => {
       width: 18%;
       padding: 15px;
       text-align: center;
-      color: rgb(255, 255, 255);
+      color: var(--grad);
       opacity: 0.9;
     }
 
@@ -107,7 +111,7 @@ onMounted(() => {
       table tbody td {
         padding: 15px;
         text-align: center;
-        color: var(--color-white);
+        color: var(--grad);
         padding: 2px;
       }
     }

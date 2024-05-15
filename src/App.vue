@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .wrapper {
   padding: 20px 0 20px 0;
   font-family: Arial;

@@ -1,5 +1,5 @@
 <template>
-  <div class="dialog" v-if="props.show" @click="hideDialog">
+  <div class="dialog" v-if="props.modelValue" @click="hideDialog">
     <div class="dialog__content" @click.stop>
       <slot></slot>
     </div>
@@ -10,16 +10,16 @@
 import { ref, defineProps, defineEmits } from "vue";
 
 const name = ref("my-dialog");
-const emit = defineEmits(["update:show"]);
+const emit = defineEmits(["update:modelValue"]);
 const props = defineProps({
-  show: {
+  modelValue: {
     type: Boolean,
     default: true,
   },
 });
 
 const hideDialog = () => {
-  emit("update:show", false);
+  emit("update:modelValue", false);
 };
 </script>
 
