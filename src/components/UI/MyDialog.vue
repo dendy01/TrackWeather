@@ -34,7 +34,7 @@ const hideDialog = () => {
   display: flex;
   z-index: 1;
 
-  .dialog__content {
+  &__content {
     margin: auto;
     background: white;
     border-radius: 12px;
